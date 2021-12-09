@@ -23,6 +23,14 @@ export default class MusicPlayer extends Component {
     fetch("/spotify/skip", requestOptions);
   }
 
+  calculateTime(secs) {
+    const minutes = Math.floor(secs / 60);
+    const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const seconds = Math.floor(secs % 60);
+    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    return `${returnedMinutes}:${returnedSeconds}`;
+  }
+
   pauseSong() {
     const requestOptions = {
       method: "PUT",
@@ -41,6 +49,7 @@ export default class MusicPlayer extends Component {
 
   render() {
     const songProgress = (this.props.time / this.props.duration) * 100;
+    const songInSeconds = this.props.time / 1000;
 
     return (
       <Card>
@@ -54,6 +63,9 @@ export default class MusicPlayer extends Component {
             </Typography>
             <Typography color="textSecondary" variant="subtitle1">
               {this.props.artist}
+            </Typography>
+            <Typography color="textSecondary" variant="determinate">
+              {this.calculateTime(songInSeconds)}
             </Typography>
             <div>
               <IconButton
