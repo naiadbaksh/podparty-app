@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import RoomJoinPage from "./RoomJoinPage";
-import CreateRoomPage from "./CreateRoomPage";
-import Room from "./Room";
+import RoomJoinPage from "../RoomJoinPage";
+import CreateRoomPage from "../CreateRoomPage";
+import Room from "../Room";
 import { Grid, Button, ButtonGroup, Typography } from "@material-ui/core";
 import {
   BrowserRouter as Router,
@@ -10,7 +10,16 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
-import Info from "./Info";
+import Info from "../Info";
+import {
+  BlackOutlineButton,
+  GreenButton,
+  Header,
+  HomePageWrapper,
+  ButtonsContainer,
+  HomePageContainer,
+  HomePageOverlay,
+} from "./HomePage.styled";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -33,26 +42,19 @@ export default class HomePage extends Component {
 
   renderHomePage() {
     return (
-      <Grid container spacing={3}>
-        <Grid item xs={12} align="center">
-          <Typography variant="h3" compact="h3">
-            PodParty!
-          </Typography>
-        </Grid>
-        <Grid item xs={12} align="center">
-          <ButtonGroup disableElevation variant="contained" color="primary">
-            <Button color="primary" to="/join" component={Link}>
-              Join a Room
-            </Button>
-            <Button color="default" to="/info" component={Link}>
-              Info
-            </Button>
-            <Button color="secondary" to="/create" component={Link}>
-              Create a Room
-            </Button>
-          </ButtonGroup>
-        </Grid>
-      </Grid>
+      <>
+        <HomePageContainer>
+          <HomePageOverlay></HomePageOverlay>
+          <HomePageWrapper id="homePageContainer">
+            <Header>Podparty</Header>
+            <ButtonsContainer>
+              <GreenButton href="/join">JOIN A ROOM</GreenButton>
+              <BlackOutlineButton href="/info">INFO</BlackOutlineButton>
+              <GreenButton href="/create">CREATE A ROOM</GreenButton>
+            </ButtonsContainer>
+          </HomePageWrapper>
+        </HomePageContainer>
+      </>
     );
   }
 
