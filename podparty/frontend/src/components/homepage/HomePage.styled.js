@@ -1,13 +1,13 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import overlay from "./overlay.png";
-import HubermanLab from "./HubermanLab.png";
-import MichelleObama from "./MichelleObama.png";
-import CallHerDaddy from "./CallHerDaddy.png";
+import overlay from "./images/overlay.png";
+import HubermanLab from "./images/HubermanLab.png";
+import MichelleObama from "./images/MichelleObama.png";
+import CallHerDaddy from "./images/CallHerDaddy.png";
 
-// const [current, setCurrent] = useState(0);
+const [current, setCurrent] = useState(0);
 
-// const picArray = [HubermanLab, MichelleObama, CallHerDaddy];
+const picArray = [HubermanLab, MichelleObama, CallHerDaddy];
 
 // const changePic = () => {
 //   current < 2 ? setCurrent(current + 1) : setCurrent(0);
@@ -19,7 +19,7 @@ import CallHerDaddy from "./CallHerDaddy.png";
 //   }, 3000);
 // };
 
-const currentPic = picArray[current];
+// const currentPic = picArray[current];
 
 export const HomePageContainer = styled.div`
   position: fixed;
