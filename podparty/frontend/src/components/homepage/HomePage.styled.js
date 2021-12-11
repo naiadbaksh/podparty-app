@@ -1,17 +1,39 @@
+// import React, { useState } from "react";
 import styled from "styled-components";
+import overlay from "./overlay.png";
+import HubermanLab from "./HubermanLab.png";
+import MichelleObama from "./MichelleObama.png";
+import CallHerDaddy from "./CallHerDaddy.png";
+
+// const [current, setCurrent] = useState(0);
+
+// const picArray = [HubermanLab, MichelleObama, CallHerDaddy];
+
+// const changePic = () => {
+//   current < 2 ? setCurrent(current + 1) : setCurrent(0);
+// };
+
+// componentDidMount = () => {
+//   setInterval(() => {
+//     changePic();
+//   }, 3000);
+// };
+
+const currentPic = picArray[current];
 
 export const HomePageContainer = styled.div`
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url("https://www.bluecoding.com/storage/app/media/uploaded-files/lex_fridman.jpg");
-  background-size: cover;
+  background-image: url(${CallHerDaddy});
+  background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-position: center;
 `;
 
 export const HomePageOverlay = styled.div`
   position: fixed;
-  background-color: red;
+  background-image: url(${overlay});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,7 +55,7 @@ export const HomePageWrapper = styled.div`
 export const ButtonsContainer = styled.div`
   width: 80%;
   height: 50%vh;
-  margin: 100px 200px 100px 200px;
+  margin: 50px 200px 100px 200px;
 `;
 
 export const Header = styled.div`
@@ -41,12 +63,13 @@ export const Header = styled.div`
   display: block;
   font-size: 70px;
   line-height: 1.3;
-  margin: auto;
+  margin: 10px;
   padding: 0px;
   text-align: center;
   font-family: "Avenir", "Helvetica";
   font-weight: 900;
   justify-content: center;
+  text-shadow: #fff 2px 2px 40px;
 `;
 
 export const GreenButton = styled.a`

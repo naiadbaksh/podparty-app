@@ -19,6 +19,7 @@ import {
   ButtonsContainer,
   HomePageContainer,
   HomePageOverlay,
+  HeaderFont,
 } from "./HomePage.styled";
 
 export default class HomePage extends Component {
@@ -45,7 +46,7 @@ export default class HomePage extends Component {
       <>
         <HomePageContainer>
           <HomePageOverlay></HomePageOverlay>
-          <HomePageWrapper id="homePageContainer">
+          <HomePageWrapper id="homePageWrapper">
             <Header>Podparty</Header>
             <ButtonsContainer>
               <GreenButton href="/join">JOIN A ROOM</GreenButton>
