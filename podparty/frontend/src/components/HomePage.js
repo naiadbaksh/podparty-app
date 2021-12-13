@@ -17,7 +17,7 @@ import {
   PageWrapper,
   ButtonsContainer,
   PageOverlay,
-  PageContainer,
+  HomePageContainer,
 } from "./Components.styled";
 
 export default class HomePage extends Component {
@@ -43,7 +43,7 @@ export default class HomePage extends Component {
   renderHomePage() {
     return (
       <>
-        <PageContainer>
+        <HomePageContainer>
           <PageOverlay></PageOverlay>
           <PageWrapper id="homePageWrapper">
             <Header>Podparty</Header>
@@ -53,7 +53,7 @@ export default class HomePage extends Component {
               <GreenButton href="/create">CREATE A ROOM</GreenButton>
             </ButtonsContainer>
           </PageWrapper>
-        </PageContainer>
+        </HomePageContainer>
       </>
     );
   }

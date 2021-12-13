@@ -4,11 +4,21 @@ import HubermanLab from "./images/HubermanLab.png";
 import MichelleObama from "./images/MichelleObama.png";
 import CallHerDaddy from "./images/CallHerDaddy.png";
 
-export const PageContainer = styled.div`
+export const HomePageContainer = styled.div`
   position: fixed;
   width: 100%;
   height: 100vh;
   background-image: url(${CallHerDaddy});
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+export const RoomJoinPageContainer = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url(${HubermanLab});
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -41,6 +51,12 @@ export const ButtonsContainer = styled.div`
   margin: 50px 200px 100px 200px;
 `;
 
+export const RoomJoinButtonsContainer = styled.div`
+  width: 50%;
+  height: 50%vh;
+  margin: 50px 200px 100px 330px;
+`;
+
 export const Header = styled.div`
   color: #1db954;
   display: block;
@@ -53,6 +69,20 @@ export const Header = styled.div`
   font-weight: 900;
   justify-content: center;
   text-shadow: #fff 2px 2px 40px;
+`;
+
+export const Subheading = styled.div`
+  color: #1db954;
+  display: block;
+  font-size: 70px;
+  line-height: 1.3;
+  margin: 10px;
+  padding: 0px;
+  text-align: center;
+  font-family: "Avenir", "Helvetica";
+  font-weight: 500;
+  justify-content: center;
+  ${"" /* text-shadow: #fff 2px 2px 40px; */}
 `;
 
 export const GreenButton = styled.a`
@@ -106,4 +136,24 @@ export const BlackOutlineButton = styled.a`
   padding: 18px 48px 16px;
   text-decoration: none;
   margin: 10px;
+`;
+
+export const InputField = styled.input`
+   {
+    display: inline block;
+    font-family: "Avenir", "Helvetica";
+    margin: 0px 200px 0px 410px;
+    width: 20%;
+    height: 40px;
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #222326;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9dadc;
+    border-radius: 10px;
+    justify-content: center;
+    vertical-align: middle;
+  }
 `;
