@@ -1,27 +1,10 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import overlay from "./images/overlay.png";
 import HubermanLab from "./images/HubermanLab.png";
 import MichelleObama from "./images/MichelleObama.png";
 import CallHerDaddy from "./images/CallHerDaddy.png";
 
-const [current, setCurrent] = useState(0);
-
-const picArray = [HubermanLab, MichelleObama, CallHerDaddy];
-
-// const changePic = () => {
-//   current < 2 ? setCurrent(current + 1) : setCurrent(0);
-// };
-
-// componentDidMount = () => {
-//   setInterval(() => {
-//     changePic();
-//   }, 3000);
-// };
-
-// const currentPic = picArray[current];
-
-export const HomePageContainer = styled.div`
+export const PageContainer = styled.div`
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -31,7 +14,7 @@ export const HomePageContainer = styled.div`
   background-position: center;
 `;
 
-export const HomePageOverlay = styled.div`
+export const PageOverlay = styled.div`
   position: fixed;
   background-image: url(${overlay});
   background-position: center;
@@ -46,7 +29,7 @@ export const HomePageOverlay = styled.div`
   z-index: -1;
 `;
 
-export const HomePageWrapper = styled.div`
+export const PageWrapper = styled.div`
   width: 80%vw;
   height: 50%vh;
   margin: 400px 100px 100px 100px;

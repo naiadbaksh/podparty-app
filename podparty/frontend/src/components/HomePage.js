@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import RoomJoinPage from "../RoomJoinPage";
-import CreateRoomPage from "../CreateRoomPage";
-import Room from "../Room";
-import { Grid, Button, ButtonGroup, Typography } from "@material-ui/core";
+import RoomJoinPage from "./RoomJoinPage";
+import CreateRoomPage from "./CreateRoomPage";
+import Room from "./Room";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,23 +9,23 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
-import Info from "../Info";
+import Info from "./Info";
 import {
   BlackOutlineButton,
   GreenButton,
   Header,
-  HomePageWrapper,
+  PageWrapper,
   ButtonsContainer,
-  HomePageContainer,
-  HomePageOverlay,
-  HeaderFont,
-} from "./HomePage.styled";
+  PageOverlay,
+  PageContainer,
+} from "./Components.styled";
 
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       roomCode: null,
+      current: 0,
     };
     this.clearRoomCode = this.clearRoomCode.bind(this);
   }
@@ -44,17 +43,17 @@ export default class HomePage extends Component {
   renderHomePage() {
     return (
       <>
-        <HomePageContainer>
-          <HomePageOverlay></HomePageOverlay>
-          <HomePageWrapper id="homePageWrapper">
+        <PageContainer>
+          <PageOverlay></PageOverlay>
+          <PageWrapper id="homePageWrapper">
             <Header>Podparty</Header>
             <ButtonsContainer>
               <GreenButton href="/join">JOIN A ROOM</GreenButton>
               <BlackOutlineButton href="/info">INFO</BlackOutlineButton>
               <GreenButton href="/create">CREATE A ROOM</GreenButton>
             </ButtonsContainer>
-          </HomePageWrapper>
-        </HomePageContainer>
+          </PageWrapper>
+        </PageContainer>
       </>
     );
   }
