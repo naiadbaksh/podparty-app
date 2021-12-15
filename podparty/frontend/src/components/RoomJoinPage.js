@@ -31,7 +31,10 @@ export default class RoomJoinPage extends Component {
           <PageOverlay></PageOverlay>
           <PageWrapper id="homePageWrapper">
             <Subheading>Join a Room</Subheading>
-            <InputField placeholder="Enter a room code" onChange={this.handleTextFieldChange}/>
+            <InputField
+              placeholder="Enter a room code"
+              onChange={this.handleTextFieldChange}
+            />
             <RoomJoinButtonsContainer>
               <GreenButton onClick={this.roomButtonPressed}>
                 ENTER ROOM
@@ -48,6 +51,7 @@ export default class RoomJoinPage extends Component {
     this.setState({
       roomCode: e.target.value,
     });
+    console.log(e.target.value);
   }
 
   roomButtonPressed() {

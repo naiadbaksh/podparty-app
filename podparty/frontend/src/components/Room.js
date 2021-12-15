@@ -1,7 +1,20 @@
 import React, { Component } from "react";
-import { Grid, Button, Typography } from "@material-ui/core";
 import CreateRoomPage from "./CreateRoomPage";
 import MusicPlayer from "./MusicPlayer";
+import PodPlayer from "./PodPlayer";
+
+import {
+  BlackOutlineButton,
+  GreenButton,
+  Header,
+  Subheading,
+  PageWrapper,
+  RoomButtonsContainer,
+  PageOverlay,
+  RoomPageContainer,
+  InputField,
+  RoomCode,
+} from "./Components.styled";
 
 export default class Room extends Component {
   constructor(props) {
@@ -104,32 +117,24 @@ export default class Room extends Component {
 
   renderSettings() {
     return (
-      <Grid container spacing={1}>
-        <Grid item xs={12} align="center">
-          <CreateRoomPage
-            update={true}
-            votesToSkip={this.state.votesToSkip}
-            guestCanPause={this.state.guestCanPause}
-            roomCode={this.roomCode}
-            updateCallback={this.getRoomDetails}
-          />
-        </Grid>
-        <Grid item xs={12} align="center">
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={() => this.updateShowSettings(false)}
-          >
-            Close
-          </Button>
-        </Grid>
-      </Grid>
+      <>
+        <CreateRoomPage
+          update={true}
+          votesToSkip={this.state.votesToSkip}
+          guestCanPause={this.state.guestCanPause}
+          roomCode={this.roomCode}
+          updateCallback={this.getRoomDetails}
+        />
+        <BlackOutlineButton onClick={() => this.updateShowSettings(false)}>
+          Close
+        </BlackOutlineButton>
+      </>
     );
   }
 
   renderSettingsButton() {
     return (
-      <Grid item xs={12} align="center">
+      <>
         <Button
           variant="contained"
           color="primary"
@@ -137,7 +142,7 @@ export default class Room extends Component {
         >
           Settings
         </Button>
-      </Grid>
+      </>
     );
   }
 
@@ -146,24 +151,19 @@ export default class Room extends Component {
       return this.renderSettings();
     }
     return (
-      <Grid container spacing={1}>
-        <Grid item xs={12} align="center">
-          <Typography variant="h4" component="h4">
-            Code: {this.roomCode}
-          </Typography>
-        </Grid>
-        <MusicPlayer {...this.state.song} />
-        {this.state.isHost ? this.renderSettingsButton() : null}
-        <Grid item xs={12} align="center">
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={this.leaveButtonPressed}
-          >
-            Leave Room
-          </Button>
-        </Grid>
-      </Grid>
+      <>
+        <RoomPageContainer>
+          <PageWrapper id="homePageWrapper">
+            <RoomCode>{this.roomCode}</RoomCode>
+            <PodPlayer {...this.state.song} />
+            <RoomButtonsContainer>
+              <GreenButton onClick={this.roomButtonPressed}>
+                LEAVE ROOM
+              </GreenButton>
+            </RoomButtonsContainer>
+          </PageWrapper>
+        </RoomPageContainer>
+      </>
     );
   }
 }

@@ -18,6 +18,7 @@ import {
   ButtonsContainer,
   PageOverlay,
   HomePageContainer,
+  RoomCode,
 } from "./Components.styled";
 
 export default class HomePage extends Component {

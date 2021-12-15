@@ -78,6 +78,7 @@ class CurrentSong(APIView):
         album_cover = item.get('album').get('images')[0].get('url')
         is_playing = response.get('is_playing')
         song_id = item.get('id')
+        artist_image = item.get('artists').get('images')[0].get('url')
 
         artist_string = ""
 
@@ -97,7 +98,8 @@ class CurrentSong(APIView):
             'is_playing': is_playing,
             'votes': votes,
             'votes_required': room.votes_to_skip,
-            'id': song_id
+            'id': song_id,
+            'artist_image': artist_image
         }
 
         self.update_room_song(room, song_id)
