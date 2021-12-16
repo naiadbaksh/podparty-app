@@ -195,18 +195,72 @@ export const InputField = styled.input`
 // Podplayer
 
 export const AudioPlayer = styled.div`
-  max-width: 550px;
+  max-width: 100%;
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
   margin: auto;
   color: #fff;
+  postition: relative;
+  font-family: "Circular";
+`;
+
+export const AudioPlayerBackground = styled.img`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(8px);
+  z-index: -2;
+`;
+export const AudioPlayerBackgroundFilter = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 50%;
+  z-index: -1;
+`;
+
+export const Info = styled.div`
+  position: absolute;
 `;
 
 export const TrackInfo = styled.div`
   text-align: center;
   z-index: 1;
-  position: relative;
+  position: absolute;
+  left: 220px;
+  bottom: 5px;
+`;
+
+export const Title = styled.h2`
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-align: left;
+`;
+
+export const Artist = styled.h3`
+  font-weight: 300;
+  margin-top: 0;
+  text-align: left;
+`;
+
+export const Artwork = styled.img`
+  position: absolute;
+  display: block;
+  margin: auto;
+  height: 200px;
+  width: 200px;
+  left: 10px;
+  bottom: 20px;
 `;
 
 export const ForwardButton = styled.button`
@@ -252,22 +306,8 @@ export const RoomCode = styled.div`
   ${"" /* text-shadow: #fff 2px 2px 40px; */}
 `;
 
-export const Title = styled.h2`
-  font-weight: 700;
-  margin-bottom: 4px;
-`;
-
-export const Artist = styled.h3`
-  font-weight: 300;
-  margin-top: 0;
-`;
-
-export const Artwork = styled.img`
-  border-radius: 120px;
-  display: block;
-  margin: auto;
-  height: 200px;
-  width: 200px;
+export const Controls = styled.div`
+  z-index: 10;
 `;
 
 export const AudioControls = styled.div`

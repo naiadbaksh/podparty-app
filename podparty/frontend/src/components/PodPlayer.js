@@ -18,6 +18,10 @@ import {
   Title,
   AudioControls,
   Artwork,
+  Info,
+  AudioPlayerBackground,
+  AudioPlayerBackgroundFilter,
+  Controls,
 } from "./Components.styled";
 
 export const PodPlayer = (props) => {
@@ -103,27 +107,19 @@ export const PodPlayer = (props) => {
   `;
 
   return (
-    <AudioPlayer>
-      <TrackInfo>
-        {/* <Artwork>{props.image_url}</Artwork> */}
-        <Title>{props.title}</Title>
-        <Artist>{props.artist}</Artist>
-        <AudioControls>
-          <BackButton>
-            <BsArrowLeftShort /> 30
-          </BackButton>
-          <PlayPause
-            onClick={() => {
-              props.is_playing ? pauseSong() : playSong();
-            }}
-          >
-            {props.is_playing ? <FaPause /> : <FaPause />}
-          </PlayPause>
-          <ForwardButton>
-            30 <BsArrowRightShort />
-          </ForwardButton>
-        </AudioControls>
+    <AudioPlayer id="AudioPlayer">
+      <AudioPlayerBackgroundFilter />
+      <AudioPlayerBackground src={props.image_url} />
+      <Info>
+        <Artwork id="Artwork" src={props.image_url} />
+        <TrackInfo id="TrackInfo">
+          <Title id="Title">{props.title}</Title>
+          <Artist id="Artist">{props.artist}</Artist>
+        </TrackInfo>
+      </Info>
+      <Controls>
         <ProgressBar
+          id="ProgressBar"
           type="range"
           value={songProgress}
           step="1"
@@ -133,9 +129,25 @@ export const PodPlayer = (props) => {
           //   onKeyUp={onScrubEnd}
           style={{ background: trackStyling }}
         />
-        <CurrentTime>C:UR</CurrentTime>
-        <Duration>{props.duration}</Duration>
-      </TrackInfo>
+        <AudioControls>
+          <BackButton id="BackButton">
+            <BsArrowLeftShort id="BsArrowLeftShort" /> 30
+          </BackButton>
+          <PlayPause
+            id="PlayPause"
+            onClick={() => {
+              props.is_playing ? pauseSong() : playSong();
+            }}
+          >
+            {props.is_playing ? <FaPause /> : <FaPause />}
+          </PlayPause>
+          <ForwardButton id="ForwardButton">
+            30 <BsArrowRightShort />
+          </ForwardButton>
+        </AudioControls>
+        <CurrentTime id="CurrentTime">C:UR</CurrentTime>
+        <Duration id="Duration">{props.duration}</Duration>
+      </Controls>
     </AudioPlayer>
   );
 };
