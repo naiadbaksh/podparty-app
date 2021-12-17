@@ -1,13 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
-import { BsArrowLeftShort } from "react-icons/bs";
-import { BsArrowRightShort } from "react-icons/bs";
-import { FaPlay } from "react-icons/fa";
-import { FaPause } from "react-icons/fa";
 import {
   AudioPlayer,
   ForwardButton,
   BackButton,
   PlayPause,
+  PlayIcon,
+  PauseIcon,
   CurrentTime,
   ProgressBar,
   Duration,
@@ -22,6 +20,7 @@ import {
   AudioPlayerBackground,
   AudioPlayerBackgroundFilter,
   Controls,
+  ProgressControls,
 } from "./Components.styled";
 
 export const PodPlayer = (props) => {
@@ -34,10 +33,20 @@ export const PodPlayer = (props) => {
   const progressBar = useRef(); // reference our progress bar
   const animationRef = useRef(); // reference the animation
 
-  const calculateTime = (props) => {
-    const minutes = Math.floor(props.duration / 60);
+  const calculateTime = (milliseconds) => {
+    const time = milliseconds / 1000;
+    const minutes = Math.floor(time / 60);
     const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
-    const seconds = Math.floor(props.duration % 60);
+    const seconds = Math.floor(time % 60);
+    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    return `${returnedMinutes}:${returnedSeconds}`;
+  };
+
+  const calculateDuration = (milliseconds) => {
+    const time = milliseconds / 1000;
+    const minutes = Math.floor(time / 60);
+    const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const seconds = Math.floor(time % 60);
     const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
     return `${returnedMinutes}:${returnedSeconds}`;
   };
@@ -118,35 +127,35 @@ export const PodPlayer = (props) => {
         </TrackInfo>
       </Info>
       <Controls>
-        <ProgressBar
-          id="ProgressBar"
-          type="range"
-          value={songProgress}
-          step="1"
-          min="0"
-          //   onChange={(e) => onScrub(e.target.value)}
-          //   onMouseUp={onScrubEnd}
-          //   onKeyUp={onScrubEnd}
-          style={{ background: trackStyling }}
-        />
+        <ProgressControls>
+          <CurrentTime id="CurrentTime">
+            {calculateTime(props.time)}
+          </CurrentTime>
+          <ProgressBar
+            id="ProgressBar"
+            type="range"
+            value={songProgress}
+            step="1"
+            min="0"
+            //   onChange={(e) => onScrub(e.target.value)}
+            //   onMouseUp={onScrubEnd}
+            //   onKeyUp={onScrubEnd}
+            style={{ background: trackStyling }}
+          />
+          <Duration id="Duration">{calculateDuration(props.duration)}</Duration>
+        </ProgressControls>
         <AudioControls>
-          <BackButton id="BackButton">
-            <BsArrowLeftShort id="BsArrowLeftShort" /> 30
-          </BackButton>
+          <BackButton id="BackButton"></BackButton>
           <PlayPause
             id="PlayPause"
             onClick={() => {
               props.is_playing ? pauseSong() : playSong();
             }}
           >
-            {props.is_playing ? <FaPause /> : <FaPause />}
+            {props.is_playing ? <PauseIcon /> : <PlayIcon />}
           </PlayPause>
-          <ForwardButton id="ForwardButton">
-            30 <BsArrowRightShort />
-          </ForwardButton>
+          <ForwardButton id="ForwardButton"></ForwardButton>
         </AudioControls>
-        <CurrentTime id="CurrentTime">C:UR</CurrentTime>
-        <Duration id="Duration">{props.duration}</Duration>
       </Controls>
     </AudioPlayer>
   );

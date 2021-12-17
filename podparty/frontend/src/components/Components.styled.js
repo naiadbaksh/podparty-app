@@ -4,6 +4,10 @@ import HubermanLab from "./images/HubermanLab.png";
 import MichelleObama from "./images/MichelleObama.png";
 import CallHerDaddy from "./images/CallHerDaddy.png";
 import ArmchairExpert from "./images/ArmchairExpert.png";
+import Forward15 from "./images/Forward15.png";
+import Back15 from "./images/Back15.png";
+import PlayPng from "./images/PlayIcon.png";
+import PausePng from "./images/PauseIcon.png";
 
 export const HomePageContainer = styled.div`
   position: fixed;
@@ -198,7 +202,7 @@ export const AudioPlayer = styled.div`
   max-width: 100%;
   border-radius: 20px;
   padding: 24px;
-  box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
+  ${"" /* box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2); */}
   margin: auto;
   color: #fff;
   postition: relative;
@@ -225,7 +229,7 @@ export const AudioPlayerBackgroundFilter = styled.div`
   right: 0;
   bottom: 0;
   background-color: #000;
-  opacity: 50%;
+  opacity: 70%;
   z-index: -1;
 `;
 
@@ -234,15 +238,15 @@ export const Info = styled.div`
 `;
 
 export const TrackInfo = styled.div`
-  text-align: center;
   z-index: 1;
   position: absolute;
   left: 220px;
   bottom: 5px;
+  width: 500px;
 `;
 
 export const Title = styled.h2`
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 4px;
   text-align: left;
 `;
@@ -263,33 +267,60 @@ export const Artwork = styled.img`
   bottom: 20px;
 `;
 
-export const ForwardButton = styled.button`
-  width: 35px;
-  height: 35px;
-  font-size: 10px;
+export const ForwardButton = styled.div`
+  width: 55px;
+  height: 22px;
+  position: relative;
+  display: block;
+  background-image: url(${Forward15});
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   cursor: pointer;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
-export const BackButton = styled.button`
-  width: 35px;
-  height: 35px;
+export const BackButton = styled.div`
+  width: 55px;
+  height: 22px;
+  position: relative;
+  display: block;
+  background-image: url(${Back15});
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   cursor: pointer;
-  font-size: 10px;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
-export const PlayPause = styled.button`
-  height: 40px;
-  width: 40px;
+export const PlayPause = styled.div`
+  width: 63px;
+  height: 63px;
+  margin: none;
 `;
 
-export const CurrentTime = styled.div`
-  font-family: monospace;
-  font-size: 16px;
-  margin-left: 25px;
+export const PlayIcon = styled.div`
+  height: 63px;
+  width: 63px;
+  position: relative;
+  display: block;
+  background-image: url(${PlayPng});
+  background-size: auto;
+  background-repeat: no-repeat;
 `;
 
-export const Duration = styled.div`
-  font-size: 16px;
+export const PauseIcon = styled.div`
+  height: 63px;
+  width: 63px;
+  position: relative;
+  display: block;
+  background-image: url(${PausePng});
+  background-size: auto;
+  background-repeat: no-repeat;
 `;
 
 export const RoomCode = styled.div`
@@ -313,8 +344,30 @@ export const Controls = styled.div`
 export const AudioControls = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 75%;
-  margin: 0 auto 15px;
+  width: 25%;
+  margin: 10px auto 15px;
+  align-items: center;
+`;
+
+export const ProgressControls = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Circular";
+`;
+
+export const CurrentTime = styled.div`
+  font-size: 16px;
+  margin-left: 25px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+`;
+
+export const Duration = styled.div`
+  font-size: 16px;
+  margin-left: 10px;
+  margin-right: 25px;
+  margin-bottom: 5px;
 `;
 
 export const ProgressBar = styled.input`
@@ -323,7 +376,7 @@ export const ProgressBar = styled.input`
   width: 100%;
   margin-bottom: 10px;
   border-radius: 8px;
-  background: #3b7677;
+  background: #222222;
   transition: background 0.2s ease;
   cursor: pointer;
 `;
