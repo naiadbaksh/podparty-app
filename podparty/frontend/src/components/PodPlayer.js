@@ -67,6 +67,15 @@ export const PodPlayer = (props) => {
     fetch("/spotify/play", requestOptions);
   };
 
+  const forwardFifteen = () => {
+    console.log("Forward 15 pressed.");
+    const requestOptions = {
+      method: "PUT",
+      headers: { "Content-Type": "applications.json" },
+    };
+    fetch("/spotify/seek", requestOptions);
+  };
+
   const togglePlayPause = () => {
     const prevValue = isPlaying;
     setIsPlaying(!prevValue);
@@ -145,7 +154,7 @@ export const PodPlayer = (props) => {
           <Duration id="Duration">{calculateDuration(props.duration)}</Duration>
         </ProgressControls>
         <AudioControls>
-          <BackButton id="BackButton"></BackButton>
+          <BackButton id="BackButton" />
           <PlayPause
             id="PlayPause"
             onClick={() => {
@@ -154,7 +163,7 @@ export const PodPlayer = (props) => {
           >
             {props.is_playing ? <PauseIcon /> : <PlayIcon />}
           </PlayPause>
-          <ForwardButton id="ForwardButton"></ForwardButton>
+          <ForwardButton onClick={forwardFifteen} id="ForwardButton" />
         </AudioControls>
       </Controls>
     </AudioPlayer>
