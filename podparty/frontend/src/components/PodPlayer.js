@@ -73,7 +73,16 @@ export const PodPlayer = (props) => {
       method: "PUT",
       headers: { "Content-Type": "applications.json" },
     };
-    fetch("/spotify/seek", requestOptions);
+    fetch("/spotify/seek-forward", requestOptions);
+  };
+
+  const rewindFifteen = () => {
+    console.log("Rewind 15 pressed.");
+    const requestOptions = {
+      method: "PUT",
+      headers: { "Content-Type": "applications.json" },
+    };
+    fetch("/spotify/seek-back", requestOptions);
   };
 
   const togglePlayPause = () => {
@@ -154,7 +163,7 @@ export const PodPlayer = (props) => {
           <Duration id="Duration">{calculateDuration(props.duration)}</Duration>
         </ProgressControls>
         <AudioControls>
-          <BackButton id="BackButton" />
+          <BackButton onClick={rewindFifteen} id="BackButton" />
           <PlayPause
             id="PlayPause"
             onClick={() => {

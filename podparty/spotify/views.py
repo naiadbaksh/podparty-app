@@ -146,6 +146,16 @@ class ForwardFifteen(APIView):
 
         return Response({}, status=status.HTTP_403_FORBIDDEN)
 
+class RewindFifteen(APIView):
+    def put(self, response, format=None):
+        room_code = self.request.session.get('room_code')
+        room = Room.objects.filter(code=room_code)[0]
+        if self.request.session.session_key == room.host or room.guest_can_pause:
+            rewind_fifteen(room.host)
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        return Response({}, status=status.HTTP_403_FORBIDDEN)
+
 class SkipSong(APIView):
     def post(self, request, format=None):
         room_code = self.request.session.get('room_code')

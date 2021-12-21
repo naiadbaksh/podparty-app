@@ -9,5 +9,6 @@ urlpatterns = [
     path('pause', PauseSong.as_view()),
     path('play', PlaySong.as_view()),
     path('skip', SkipSong.as_view()),
-    path('seek', ForwardFifteen.as_view())
+    path('seek-forward', ForwardFifteen.as_view()),
+    path('seek-back', RewindFifteen.as_view()),
 ]

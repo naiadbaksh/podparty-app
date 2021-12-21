@@ -81,15 +81,35 @@ def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False):
         return {'Error': 'Issue with request'}
 
 
-def execute_spotify_api_request_seek(session_id, endpoint, post_=False, put_=False):
+def execute_spotify_api_request_seek_forward(session_id, endpoint, post_=False, put_=False):
     tokens = get_user_tokens(session_id)
     headers = {'Content-Type': 'application/json',
                'Authorization': "Bearer " + tokens.access_token}
+    current_milliseconds = current_time(session_id)
+    future_time = (current_milliseconds + 15000)
 
     if post_:
         post(BASE_URL + endpoint, headers=headers)
     if put_:
-        put(BASE_URL + endpoint, headers=headers, params={"position_ms": 50000})
+        put(BASE_URL + endpoint, headers=headers, params={"position_ms": future_time})
+
+    response = get(BASE_URL + endpoint, {}, headers=headers)
+    try:
+        return response.json()
+    except:
+        return {'Error': 'Issue with request'}
+
+def execute_spotify_api_request_seek_backward(session_id, endpoint, post_=False, put_=False):
+    tokens = get_user_tokens(session_id)
+    headers = {'Content-Type': 'application/json',
+               'Authorization': "Bearer " + tokens.access_token}
+    current_milliseconds = current_time(session_id)
+    past_time = (current_milliseconds - 15000)
+
+    if post_:
+        post(BASE_URL + endpoint, headers=headers)
+    if put_:
+        put(BASE_URL + endpoint, headers=headers, params={"position_ms": past_time})
 
     response = get(BASE_URL + endpoint, {}, headers=headers)
     try:
@@ -105,7 +125,15 @@ def pause_song(session_id):
     return execute_spotify_api_request(session_id, "player/pause", put_=True)
 
 def forward_fifteen(session_id):
-    return execute_spotify_api_request_seek(session_id, "player/seek",  put_=True)
+    return execute_spotify_api_request_seek_forward(session_id, "player/seek",  put_=True)
+
+def rewind_fifteen(session_id):
+    return execute_spotify_api_request_seek_backward(session_id, "player/seek",  put_=True)
 
 def skip_song(session_id):
     return execute_spotify_api_request(session_id, "player/next", post_=True)
+
+def current_time(session_id):
+    response = execute_spotify_api_request(session_id, "player/currently-playing")
+    progress = response.get('progress_ms')
+    return progress
