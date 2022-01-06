@@ -265,6 +265,8 @@ export const Artwork = styled.img`
   width: 200px;
   left: 10px;
   bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
 `;
 
 export const ForwardButton = styled.div`

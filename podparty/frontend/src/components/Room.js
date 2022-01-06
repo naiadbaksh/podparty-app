@@ -157,9 +157,9 @@ export default class Room extends Component {
             <RoomCode>{this.roomCode}</RoomCode>
             <PodPlayer {...this.state.song} />
             <RoomButtonsContainer>
-              <GreenButton onClick={this.roomButtonPressed}>
+              {/* <GreenButton onClick={this.roomButtonPressed}>
                 LEAVE ROOM
-              </GreenButton>
+              </GreenButton> */}
             </RoomButtonsContainer>
           </PageWrapper>
         </RoomPageContainer>
