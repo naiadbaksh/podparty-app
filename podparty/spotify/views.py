@@ -66,7 +66,7 @@ class CurrentSong(APIView):
         else:
             return Response({}, status=status.HTTP_404_NOT_FOUND)
         host = room.host
-        endpoint = "player/currently-playing"
+        endpoint = "player/currently-playing?additional_types=track,episode"
         response = execute_spotify_api_request_current(host, endpoint)
 
         if 'error' in response or 'item' not in response:
@@ -75,28 +75,17 @@ class CurrentSong(APIView):
         item = response.get('item')
         duration = item.get('duration_ms')
         progress = response.get('progress_ms')
-        album_cover = item.get('album').get('images')[0].get('url')
+        album_cover = item.get('images')[0].get('url')
         is_playing = response.get('is_playing')
         song_id = item.get('id')
-        # artist_image = item.get('artists').get('images')[0].get('url')
 
-        artist_string = ""
-
-        for i, artist in enumerate(item.get('artists')):
-            if i > 0:
-                artist_string += ", "
-            name = artist.get('name')
-            artist_string += name
-
-        votes = len(Vote.objects.filter(room=room, song_id=song_id))
         song = {
             'title': item.get('name'),
-            'artist': artist_string,
+            'artist': item.get('show').get("name"),
             'duration': duration,
             'time': progress,
             'image_url': album_cover,
             'is_playing': is_playing,
-            'votes': votes,
             'votes_required': room.votes_to_skip,
             'id': song_id,
             # 'artist_image': artist_image
