@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import overlay from "./images/overlay.png";
+import overlay from "./images/Rectangle.png";
 import HubermanLab from "./images/HubermanLab.png";
 import MichelleObama from "./images/MichelleObama.png";
 import CallHerDaddy from "./images/CallHerDaddy.png";
@@ -8,6 +8,8 @@ import Forward15 from "./images/Forward15.png";
 import Back15 from "./images/Back15.png";
 import PlayPng from "./images/PlayIcon.png";
 import PausePng from "./images/PauseIcon.png";
+import Logo from "./images/Logo.png";
+import ThoughtGardenLogo from "./images/ThoughtGardenLogo.png";
 
 export const HomePageContainer = styled.div`
   position: fixed;
@@ -30,7 +32,6 @@ export const RoomJoinPageContainer = styled.div`
 `;
 
 export const CreateRoomPageContainer = styled.div`
-  position: fixed;
   width: 100%;
   height: 100vh;
   background-image: url(${ArmchairExpert});
@@ -67,7 +68,7 @@ export const PageOverlay = styled.div`
 export const PageWrapper = styled.div`
   width: 80%vw;
   height: 50%vh;
-  margin: 400px 100px 100px 100px;
+  margin: 475px 100px 100px 100px;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -120,6 +121,28 @@ export const Subheading = styled.div`
   font-weight: 500;
   justify-content: center;
   ${"" /* text-shadow: #fff 2px 2px 40px; */}
+`;
+
+export const Subtitle = styled.div`
+  color: #1db954;
+  display: block;
+  font-size: 15px;
+  line-height: 1.3;
+  margin: 10px;
+  padding: 0px;
+  position: relative;
+  font-family: "Avenir", "Helvetica";
+`;
+
+export const ThoughtGarden = styled.div`
+  height: 45px;
+  width: 313px;
+  top: 35px;
+  left: 130px;
+  position: absolute;
+  background-image: url(${ThoughtGardenLogo});
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 export const GreenButton = styled.a`
@@ -204,6 +227,8 @@ export const AudioPlayer = styled.div`
   padding: 24px;
   ${"" /* box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2); */}
   margin: auto;
+  position: relative;
+  top: 50px;
   color: #fff;
   postition: relative;
   font-family: "Circular";
@@ -331,11 +356,23 @@ export const RoomCode = styled.div`
   font-size: 30px;
   line-height: 1.3;
   margin: 10px;
+  position: absolute;
+  top: 30px;
   padding: 0px;
   text-align: center;
   font-family: "Avenir", "Helvetica";
   font-weight: 500;
   justify-content: center;
+  ${"" /* text-shadow: #fff 2px 2px 40px; */}
+`;
+
+export const RoomCodeContainer = styled.div`
+  position: absolute;
+  top: 35px;
+  right: 130px;
+  padding: 0px;
+  text-align: center;
+  justify-content: left;
   ${"" /* text-shadow: #fff 2px 2px 40px; */}
 `;
 
@@ -370,15 +407,4 @@ export const Duration = styled.div`
   margin-left: 10px;
   margin-right: 25px;
   margin-bottom: 5px;
-`;
-
-export const ProgressBar = styled.input`
-  height: 5px;
-  -webkit-appearance: none;
-  width: 100%;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  background: #222222;
-  transition: background 0.2s ease;
-  cursor: pointer;
 `;

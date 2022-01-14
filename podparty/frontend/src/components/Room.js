@@ -12,8 +12,11 @@ import {
   RoomButtonsContainer,
   PageOverlay,
   RoomPageContainer,
+  RoomCodeContainer,
   InputField,
+  Subtitle,
   RoomCode,
+  ThoughtGarden,
 } from "./Components.styled";
 
 export default class Room extends Component {
@@ -152,10 +155,14 @@ export default class Room extends Component {
     }
     return (
       <>
-        <RoomPageContainer>
+        <RoomPageContainer id="RoomPageContainer">
           <PageWrapper id="homePageWrapper">
-            <RoomCode>{this.roomCode}</RoomCode>
-            <PodPlayer {...this.state.song} />
+            <ThoughtGarden />
+            <RoomCodeContainer>
+              <Subtitle>ROOM CODE:</Subtitle>
+              <RoomCode id="roomCode">{this.roomCode}</RoomCode>
+            </RoomCodeContainer>
+            <PodPlayer id="podPlayer" {...this.state.song} />
             <RoomButtonsContainer>
               {/* <GreenButton onClick={this.roomButtonPressed}>
                 LEAVE ROOM
