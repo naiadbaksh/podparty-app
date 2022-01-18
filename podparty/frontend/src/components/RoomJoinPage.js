@@ -11,6 +11,7 @@ import {
   PageOverlay,
   RoomJoinPageContainer,
   InputField,
+  ThoughtGarden,
 } from "./Components.styled";
 
 export default class RoomJoinPage extends Component {
@@ -30,6 +31,7 @@ export default class RoomJoinPage extends Component {
         <RoomJoinPageContainer>
           <PageOverlay></PageOverlay>
           <PageWrapper id="homePageWrapper">
+            <ThoughtGarden />
             <Subheading>Join a Room</Subheading>
             <InputField
               placeholder="Enter a room code"

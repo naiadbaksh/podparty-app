@@ -9,6 +9,7 @@ import {
   PageOverlay,
   CreateRoomPageContainer,
   InputField,
+  ThoughtGarden,
 } from "./Components.styled";
 
 export default class CreateRoomPage extends Component {
@@ -108,10 +109,11 @@ export default class CreateRoomPage extends Component {
     const title = this.props.update ? "Update Room" : "Create a Room";
 
     return (
-      <CreateRoomPageContainer>
-        <PageOverlay></PageOverlay>
-        <PageWrapper>
-          <Subheading>{title}</Subheading>
+      <CreateRoomPageContainer id="pageContainer">
+        <PageOverlay id="pageOverlay"></PageOverlay>
+        <PageWrapper id="pageWrapper">
+          <ThoughtGarden />
+          <Subheading id="subheading">{title}</Subheading>
           {this.props.update
             ? this.renderUpdateButtons()
             : this.renderCreateButtons()}

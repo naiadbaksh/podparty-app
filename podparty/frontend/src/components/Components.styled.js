@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import overlay from "./images/Rectangle.png";
+import greenBlackOverlay from "./images/greenBlackOverlay.png";
+import radialOverlay from "./images/radialGreenBlackOverlay.png";
 import HubermanLab from "./images/HubermanLab.png";
 import MichelleObama from "./images/MichelleObama.png";
 import CallHerDaddy from "./images/CallHerDaddy.png";
@@ -32,6 +34,7 @@ export const RoomJoinPageContainer = styled.div`
 `;
 
 export const CreateRoomPageContainer = styled.div`
+  position: fixed;
   width: 100%;
   height: 100vh;
   background-image: url(${ArmchairExpert});
@@ -52,7 +55,8 @@ export const RoomPageContainer = styled.div`
 
 export const PageOverlay = styled.div`
   position: fixed;
-  background-image: url(${overlay});
+  background-image: url(${radialOverlay});
+  opacity: 0.5;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -68,13 +72,13 @@ export const PageOverlay = styled.div`
 export const PageWrapper = styled.div`
   width: 80%vw;
   height: 50%vh;
-  margin: 475px 100px 100px 100px;
+  margin: 375px 100px 100px 100px;
 `;
 
 export const ButtonsContainer = styled.div`
   width: 80%;
   height: 50%vh;
-  margin: 50px 200px 100px 200px;
+  margin: 500px 200px 100px 200px;
 `;
 
 export const RoomJoinButtonsContainer = styled.div`
@@ -156,9 +160,9 @@ export const GreenButton = styled.a`
   vertical-align: center;
   coursor: pointer;
   color: #fff;
-  background-color: #1db954;
+  background-color: #2bd782;
   &:hover {
-    background-color: #1ed760;
+    background-color: #1db954;
     coursor: pointer;
   }
   transition-property: background-color;
@@ -407,4 +411,15 @@ export const Duration = styled.div`
   margin-left: 10px;
   margin-right: 25px;
   margin-bottom: 5px;
+`;
+
+export const ProgressBar = styled.input`
+  height: 5px;
+  -webkit-appearance: none;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #222222;
+  transition: background 0.2s ease;
+  cursor: pointer;
 `;

@@ -126,29 +126,11 @@ export const PodPlayer = (props) => {
     changeRange();
   };
 
-  const ProgressBar = styled.input`
-    height: 5px;
-    -webkit-appearance: none;
-    width: 100%;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    background: #222222;
-    transition: background 0.2s ease;
-    cursor: pointer;
-    background: -webkit-gradient(
-      linear,
-      0% 0%,
-      100% 0%,
-      color-stop(${currentPercentage}, #fff),
-      color-stop(${currentPercentage}, #777)
-    );
-  `;
-
   const songProgress = (props.time / props.duration) * 100;
   const songInSeconds = props.time;
   const currentPercentage = `{songProgress}%`;
   // const trackStyling = `
-    
+
   // `;
 
   return (

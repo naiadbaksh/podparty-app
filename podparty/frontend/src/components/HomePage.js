@@ -19,6 +19,7 @@ import {
   PageOverlay,
   HomePageContainer,
   RoomCode,
+  ThoughtGarden,
 } from "./Components.styled";
 
 export default class HomePage extends Component {
@@ -47,7 +48,7 @@ export default class HomePage extends Component {
         <HomePageContainer>
           <PageOverlay></PageOverlay>
           <PageWrapper id="homePageWrapper">
-            <Header>Podparty</Header>
+            <ThoughtGarden />
             <ButtonsContainer>
               <GreenButton href="/join">JOIN A ROOM</GreenButton>
               <BlackOutlineButton href="/info">INFO</BlackOutlineButton>
