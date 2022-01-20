@@ -314,8 +314,10 @@ export const ForwardButton = styled.div`
   background-repeat: no-repeat;
   cursor: pointer;
   opacity: 0.5;
+  transition: all 0.2s ease-in-out;
   &:hover {
     opacity: 1;
+    transform: scale(1.1);
   }
 `;
 
@@ -329,8 +331,10 @@ export const BackButton = styled.div`
   background-repeat: no-repeat;
   cursor: pointer;
   opacity: 0.5;
+  transition: all 0.2s ease-in-out;
   &:hover {
     opacity: 1;
+    transform: scale(1.1);
   }
 `;
 
@@ -338,6 +342,13 @@ export const PlayPause = styled.div`
   width: 63px;
   height: 63px;
   margin: none;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 `;
 
 export const PlayIcon = styled.div`
