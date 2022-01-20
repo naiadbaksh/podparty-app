@@ -152,6 +152,8 @@
 
 /*! export RoomPageContainer [provided] [no usage info] [missing usage info prevents renaming] */
 
+/*! export RoomPageWrapper [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export Route [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export Route [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/react-router/esm/react-router.js .Route */

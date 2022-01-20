@@ -8,7 +8,7 @@ import {
   GreenButton,
   Header,
   Subheading,
-  PageWrapper,
+  RoomPageWrapper,
   RoomButtonsContainer,
   PageOverlay,
   RoomPageContainer,
@@ -156,7 +156,7 @@ export default class Room extends Component {
     return (
       <>
         <RoomPageContainer id="RoomPageContainer">
-          <PageWrapper id="homePageWrapper">
+          <RoomPageWrapper id="homePageWrapper">
             <ThoughtGarden />
             <RoomCodeContainer>
               <Subtitle>ROOM CODE:</Subtitle>
@@ -168,7 +168,7 @@ export default class Room extends Component {
                 LEAVE ROOM
               </GreenButton> */}
             </RoomButtonsContainer>
-          </PageWrapper>
+          </RoomPageWrapper>
         </RoomPageContainer>
       </>
     );

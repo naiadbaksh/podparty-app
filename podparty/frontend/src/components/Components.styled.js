@@ -75,6 +75,12 @@ export const PageWrapper = styled.div`
   margin: 375px 100px 100px 100px;
 `;
 
+export const RoomPageWrapper = styled.div`
+  width: 80%vw;
+  height: 50%vh;
+  margin: 450px 100px 100px 100px;
+`;
+
 export const ButtonsContainer = styled.div`
   width: 80%;
   height: 50%vh;
